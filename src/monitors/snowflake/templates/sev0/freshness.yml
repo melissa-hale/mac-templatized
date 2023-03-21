@@ -1,0 +1,14 @@
+freshness:
+  - table: "{{ table }}"
+    name: SEV0 Monitoring hourly freshness
+    freshness_threshold: 120
+    description: Default SEV0 freshness rule for hourly freshness
+    schedule:
+      type: fixed
+      start_time: "{{ startTime }}"
+      interval_minutes: 60
+    labels:
+      - sev1
+      - freshness
+      - snowflake
+    severity: sev0

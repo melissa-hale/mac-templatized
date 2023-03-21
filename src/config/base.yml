@@ -1,0 +1,2 @@
+templates_dir: './src/monitors/*/templates'
+version: 1

@@ -1,0 +1,11 @@
+field_health:
+  - table: "{{ tableName }}"
+    name: Monitoring important fields
+    description: Default SEV1 field health monitor on important fields
+    use_important_fields: true
+    timestamp_field: "{{ timestampField | created_at }}"
+    lookback_days: 2
+    aggregation_time_interval: day
+    labels:
+      - sev1
+      - snowflake
