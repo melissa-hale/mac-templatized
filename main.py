@@ -7,8 +7,8 @@ import src.monitors as monitors
 
 cmd_str = f""" pwd
     ls
-    MCD_DEFAULT_API_TOKEN=hq8MHzu_6mOEsWdf8-LzrJ8sXojesJ0rAlshrl2jauni21mycxyfSWaK
-    MCD_DEFAULT_API_ID=df17f270b0c0497ca86f034a6758c199
+    MCD_DEFAULT_API_TOKEN=
+    MCD_DEFAULT_API_ID=
     montecarlo validate
     montecarlo monitors apply --namespace dev --dry-run
 """
