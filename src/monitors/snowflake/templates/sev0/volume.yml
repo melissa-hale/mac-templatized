@@ -1,10 +1,10 @@
 volume:
-  - table: "{{ table }}" #can also be a list of tables which would be better programmatically -- raw:normalized_events.bi OR rentaldata:dev.fct_reviews_cleansed
-    name: SEV0 Monitoring hourly volume
+  - table: {{ monitor_config.table }} #can also be a list of tables which would be better programmatically -- raw:normalized_events.bi OR rentaldata:dev.fct_reviews_cleansed
+    name: {{ monitor_config.sev }} monitoring for {{ monitor_config.type }} on {{ monitor_config.table }}
     description: Default SEV0 freshness rule for hourly volume
     schedule:
       type: fixed  # must be fixed
-      start_time: "{{ startTime }}"
+      start_time: {{ monitor_config.start_time }}
       interval_minutes: 60
     comparisons:
       -  type: absolute_volume

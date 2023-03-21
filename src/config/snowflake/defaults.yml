@@ -1,0 +1,49 @@
+source: snowflake
+### field defaults ###
+field_health:
+  table: ''
+  name: ''
+  description: 'Default field health monitor on important fields'
+  labels:
+    - sev0
+    - snowflake
+  use_important_fields: true
+  lookback_days: 2
+  aggregation_time_interval: day
+
+### freshness defaults ###
+freshness:
+  tables:
+    - analytics:prod_detectors.freq_change_model
+  name: ''
+  description: Default freshness rule for daily volume
+  freshness_threshold: 400
+  schedule:
+    type: fixed
+    start_time: ''
+    interval_minutes: 1440
+  labels:
+    - sev0
+    - snowflake
+  severity: sev0
+
+### volume defaults ###
+volume:
+  tables:
+    - analytics:prod_detectors.freq_change_model
+  name: ''
+  description: Default freshness rule for daily volume
+  schedule:
+    type: fixed  # must be fixed
+    start_time: ''
+    interval_minutes: 60
+  comparisons:
+    -  type: absolute_volume
+       operator: GTE
+       threshold_value: 5000
+       baseline_interval_minutes: 1200
+  volume_metric: total_row_count
+  labels:
+    - sev0
+    - snowflake
+  severity: sev0

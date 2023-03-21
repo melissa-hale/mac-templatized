@@ -1,9 +1,9 @@
 field_health:
-  - table: "{{ tableName }}"
-    name: Monitoring important fields
+  - table: {{ monitor_config.table }}
+    name: {{ monitor_config.sev }} monitoring for {{ monitor_config.type }} on {{ monitor_config.table }}
     description: Default SEV1 field health monitor on important fields
     use_important_fields: true
-    timestamp_field: "{{ timestampField | created_at }}"
+    timestamp_field: {{ monitor_config.timestamp_field }}
     lookback_days: 2
     aggregation_time_interval: day
     labels:

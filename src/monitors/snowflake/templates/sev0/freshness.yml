@@ -1,11 +1,11 @@
 freshness:
-  - table: "{{ table }}"
-    name: SEV0 Monitoring hourly freshness
+  - table: {{ monitor_config.table }}
+    name: {{ monitor_config.sev }} monitoring for {{ monitor_config.type }} on {{ monitor_config.table }}
     freshness_threshold: 120
     description: Default SEV0 freshness rule for hourly freshness
     schedule:
       type: fixed
-      start_time: "{{ startTime }}"
+      start_time: {{ monitor_config.start_time | default(now()) }}
       interval_minutes: 60
     labels:
       - sev1
