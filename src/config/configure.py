@@ -42,5 +42,4 @@ def get_source_vars(data_source):
     with open(f'{source_vars_path}', 'r') as source_vars_file:
         source_vars = yaml.safe_load(source_vars_file)
     
-    # print(source_vars)
     return source_vars

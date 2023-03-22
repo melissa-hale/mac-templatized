@@ -6,12 +6,12 @@ raw_db: ##project/database
           - segmented_expressions: 
               - somefield
             fields:
-              - someotherfield
+              - table1field
         hourly_volume:
           - comparisons:
-              - threshold_value: 4000
+              - type: absolute_volume
+                threshold_value: 4000
                 operator: LTE
-                type: absolute_volume
                 baseline_interval_minutes: 100
             volume_metric: total_byte_count
     - table: table2
@@ -19,6 +19,8 @@ raw_db: ##project/database
         field_health_segmented:
           - segmented_expressions: 
              - somefield
+            fields:
+              - table2field
         hourly_volume:
           - volume_metric: total_byte_count
             severity: SEV-0
