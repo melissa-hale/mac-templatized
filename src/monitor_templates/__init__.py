@@ -46,15 +46,12 @@ def build_monitors(use_case_template_vars, source_vars):
             for table_object in table_list:
                 table = table_object['table']
                 for option, option_vars in table_object['options'].items():
-                    # print(option)
                     if use_case_template_vars.get(option):
-                        # print(option)
                         default_vars_for_use_case = use_case_template_vars[option] ## use case config / needs to merge with defaults
-                        # print(default_vars_for_use_case) # this is the block from the use_cases/use_case.yml
+                        print(default_vars_for_use_case)
                         use_case_base_type = default_vars_for_use_case["base_type"]
                         if use_case_template_vars.get("defaults"):
                             default_vars_for_base_use_case_template = use_case_template_vars.get("defaults")
-                            ## default_vars_for_base_use_case_template is the block from base/default.yml
                             if default_vars_for_base_use_case_template.get(use_case_base_type):
                                 default_vars_for_base_type = default_vars_for_base_use_case_template[use_case_base_type]
 
@@ -81,8 +78,6 @@ def build_monitors(use_case_template_vars, source_vars):
                                 continue
                             else:
                                 monitor_config[key] = val
-
-                        # print(monitor_config)
 
                         if monitors.get(use_case_base_type):
                             monitors[use_case_base_type].append(monitor_config)

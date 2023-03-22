@@ -1,13 +1,14 @@
 import subprocess
 import sys
 import os
+import shutil
 
 import src.monitor_templates as monitor_templates
 import src.config
 
 cmd_str = f"""
-    MCD_DEFAULT_API_TOKEN=hq8MHzu_6mOEsWdf8-LzrJ8sXojesJ0rAlshrl2jauni21mycxyfSWaK
-    MCD_DEFAULT_API_ID=df17f270b0c0497ca86f034a6758c199
+    MCD_DEFAULT_API_TOKEN=
+    MCD_DEFAULT_API_ID=
     montecarlo validate
     montecarlo monitors apply --namespace dev --dry-run
 """
@@ -32,6 +33,7 @@ if __name__ == '__main__':
                 monitor = monitor_templates.render_template(monitor_config, templates[monitor_type])
                 output.write(monitor + '\n')
 
-    result = subprocess.run(cmd_str, shell=True)
+    # result = subprocess.run(cmd_str, shell=True)
     os.remove('monitors.yml')
+    # shutil.rmtree('target')
     print('done')
