@@ -1,0 +1,3 @@
+field_health_segmented:
+  base_type: field_health
+  lookback_days: 2
