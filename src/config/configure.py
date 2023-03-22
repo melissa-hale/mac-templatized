@@ -37,8 +37,10 @@ def get_use_case_template_vars(target):
     return use_case_template_vars
 
 def get_source_vars(data_source):
+    """ Returns a dictionary of vars for the targeted source """
     source_vars_path = f'{get_vars_path()}/{data_source}.yml'
     with open(f'{source_vars_path}', 'r') as source_vars_file:
         source_vars = yaml.safe_load(source_vars_file)
     
+    # print(source_vars)
     return source_vars

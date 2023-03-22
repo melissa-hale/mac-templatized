@@ -1,0 +1,35 @@
+montecarlo:
+  field_health:
+    - table: raw_db:events_schema.table1  # required
+      description: Default field health monitor description
+      fields:
+        - someotherfield
+      use_important_fields: True # optional -- by default, do not use important fields
+      segmented_expressions:
+        - somefield # Can be a field or a SQL expression
+      lookback_days: 2
+      aggregation_time_interval: day
+      labels:
+        - default
+  volume:
+    - table: raw_db:events_schema.table1  # required
+      comparisons: # required
+        - type: absolute_volume
+          threshold_value: 4000
+          operator: LTE
+          baseline_interval_minutes: 15
+      volume_metric: total_byte_count  # row_count by default
+      description: HOURLY volume monitor
+      schedule:
+        type: fixed  # must be fixed
+        start_time: '2023-03-22 20:43:25.560242'
+        interval_minutes: 60
+      severity: SEV-1 
+  
+
+
+  ######
+  ##figure out how to ensure that type is at the beginning of comparisons
+  ## figure out how to wrap the datetime as a string
+  ##  see if montecarlo can be listed multiple times and if not, maybe need a file per table
+  

@@ -1,6 +1,7 @@
 defaults:
   field_health:
     description: Default field health monitor description
+    aggregation_time_interval: day
     use_important_fields: true
     labels:
       - default

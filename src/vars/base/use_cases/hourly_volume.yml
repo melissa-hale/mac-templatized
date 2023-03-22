@@ -1,8 +1,9 @@
 hourly_volume:
+  description: HOURLY volume monitor
   base_type: volume
   schedule:
     interval_minutes: 60
-  severity: sev1
+  severity: SEV-1
   comparisons:
     - type: absolute_volume
       operator: GTE

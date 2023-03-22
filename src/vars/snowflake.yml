@@ -2,9 +2,23 @@ raw_db: ##project/database
   events_schema: ##schema
     - table: table1
       options:
-        - field_health_segmented
-        - hourly_volume
+        field_health_segmented:
+          - segmented_expressions: 
+              - somefield
+            fields:
+              - someotherfield
+        hourly_volume:
+          - comparisons:
+              - threshold_value: 4000
+                operator: LTE
+                type: absolute_volume
+                baseline_interval_minutes: 100
+            volume_metric: total_byte_count
     - table: table2
       options:
-       - hourly_volume
-       - referential
+        field_health_segmented:
+          - segmented_expressions: 
+             - somefield
+        hourly_volume:
+          - volume_metric: total_byte_count
+            severity: SEV-0

@@ -1,5 +1,3 @@
 field_health_segmented:
   base_type: field_health
-  segmented_expressions:
-    - somefield
   lookback_days: 2
