@@ -1,0 +1,9 @@
+defaults:
+  field_health:
+    description: Default field health monitor description
+    use_important_fields: true
+    labels:
+      - default
+  volume:
+    description: Default volume monitor description
+    severity: SEV-1

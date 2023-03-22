@@ -1,0 +1,11 @@
+hourly_volume:
+  base_type: volume
+  schedule:
+    interval_minutes: 60
+  severity: sev1
+  comparisons:
+    - type: absolute_volume
+      operator: GTE
+      threshold_value: 5000
+      baseline_interval_minutes: 90
+  volume_metric: total_row_count

@@ -1,0 +1,10 @@
+raw_db: ##project/database
+  events_schema: ##schema
+    - table: table1
+      options:
+        - field_health_segmented
+        - hourly_volume
+    - table: table2
+      options:
+       - hourly_volume
+       - referential
